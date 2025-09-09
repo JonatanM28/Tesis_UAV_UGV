@@ -32,24 +32,8 @@ Este repositorio contiene los códigos desarrollados durante la tesis *“Navega
 - Ultralytics YOLOv8
 - (Opcional) Roboflow para gestión de datasets
 
+
 ---
-
-## 🚀 Instalación
-
-```bash
-# Clonar repositorio
-git clone https://github.com/JonatanM28/Tesis_UAV_UGV.git
-cd Tesis_UAV_UGV
-
-# Crear entorno virtual (opcional)
-python -m venv .venv
-source .venv/bin/activate     # Windows: .venv\Scripts\activate
-
-# Instalar dependencias
-pip install -r requirements.txt
-
-
-
 
 ## 🚀 Guías rápidas
 
@@ -92,3 +76,22 @@ python UAV.py --params ./artifacts/camera_params.yaml --yolo ./artifacts/yolov8n
 Integración completa
 
 python CodigoUAV_UGV.py
+
+---
+
+## 🚀 Instalación
+
+```bash
+# Clonar repositorio
+git clone https://github.com/JonatanM28/Tesis_UAV_UGV.git
+cd Tesis_UAV_UGV
+
+# Crear entorno virtual (opcional)
+python -m venv .venv
+source .venv/bin/activate     # Windows: .venv\Scripts\activate
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+
+
