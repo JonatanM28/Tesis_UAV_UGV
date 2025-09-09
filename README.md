@@ -47,3 +47,48 @@ source .venv/bin/activate     # Windows: .venv\Scripts\activate
 
 # Instalar dependencias
 pip install -r requirements.txt
+
+
+
+
+## 🚀 Guías rápidas
+
+1) Calibración de cámara y ArUco
+
+# Captura de imágenes para calibración
+python Captura_Img_Tablero.py --out ./data/calib/ --frames 200
+
+# Calibración intrínseca
+python Calibracion_Camara.py --imgs ./data/calib/*.png --save ./artifacts/camera_params.yaml
+
+# Prueba de detección de ArUco
+python Deteccion_Aruco.py --cam 0 --params ./artifacts/camera_params.yaml
+
+
+2) Entrenamiento de modelos
+
+ResNet-18 (dirección del UGV)
+
+python EntrenamientoResNet18.py --images ./data/steering/imgs --labels ./data/steering/labels.csv \
+--epochs 50 --batch 64 --out ./artifacts/resnet18/
+
+YOLOv8n (detección de obstáculos + UGV)
+
+python Yolov8n.py --data ./data/yolo/data.yaml --model yolov8n.pt \
+--epochs 100 --batch 16 --out ./artifacts/yolov8n/
+
+3) Ejecución en pista (integración)
+
+UGV
+
+python UGV.py --model ./artifacts/resnet18/best.pth
+
+
+UAV
+
+python UAV.py --params ./artifacts/camera_params.yaml --yolo ./artifacts/yolov8n/best.pt
+
+
+Integración completa
+
+python CodigoUAV_UGV.py
